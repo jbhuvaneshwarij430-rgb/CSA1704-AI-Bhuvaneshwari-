@@ -1,1 +1,92 @@
+from collections import deque
 
+# Goal State
+goal = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 0]
+]
+
+# Function to find the position of the blank (0)
+def find_blank(state):
+    for i in range(3):
+        for j in range(3):
+            if state[i][j] == 0:
+                return i, j
+
+# Function to generate all possible moves
+def get_neighbors(state):
+    neighbors = []
+
+    row, col = find_blank(state)
+
+    # Up, Down, Left, Right
+    moves = [(-1,0), (1,0), (0,-1), (0,1)]
+
+    for dr, dc in moves:
+        new_row = row + dr
+        new_col = col + dc
+
+        if 0 <= new_row < 3 and 0 <= new_col < 3:
+
+            # Make a copy of the puzzle
+            new_state = [r[:] for r in state]
+
+            # Swap blank with adjacent number
+            new_state[row][col], new_state[new_row][new_col] = \
+            new_state[new_row][new_col], new_state[row][col]
+
+            neighbors.append(new_state)
+
+    return neighbors
+
+# Convert list to tuple for storing in set
+def to_tuple(state):
+    return tuple(tuple(row) for row in state)
+
+# BFS Algorithm
+def bfs(start):
+
+    queue = deque()
+    queue.append((start, []))
+
+    visited = set()
+
+    while queue:
+
+        current, path = queue.popleft()
+
+        if current == goal:
+            return path + [current]
+
+        visited.add(to_tuple(current))
+
+        for neighbor in get_neighbors(current):
+            if to_tuple(neighbor) not in visited:
+                queue.append((neighbor, path + [current]))
+
+    return None
+
+# Initial State
+start = [
+    [1, 2, 3],
+    [4, 0, 6],
+    [7, 5, 8]
+]
+
+# Solve the puzzle
+solution = bfs(start)
+
+# Print Result
+if solution:
+    print("Solution Found!\n")
+
+    step = 0
+    for state in solution:
+        print("Step", step)
+        for row in state:
+            print(row)
+        print()
+        step += 1
+else:
+    print("No Solution Found.")
