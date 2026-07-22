@@ -1,0 +1,77 @@
+# Water Jug Problem
+# Jug1 = 4 Liters
+# Jug2 = 3 Liters
+
+jug1 = 0
+jug2 = 0
+
+print("Initial State:")
+print("Jug1 =", jug1, "Jug2 =", jug2)
+
+# Step 1: Fill Jug2
+jug2 = 3
+print("\nFill Jug2")
+print("Jug1 =", jug1, "Jug2 =", jug2)
+
+# Step 2: Pour Jug2 into Jug1
+jug1 = jug2
+jug2 = 0
+print("\nPour Jug2 into Jug1")
+print("Jug1 =", jug1, "Jug2 =", jug2)
+
+# Step 3: Fill Jug2 again
+jug2 = 3
+print("\nFill Jug2 again")
+print("Jug1 =", jug1, "Jug2 =", jug2)
+
+# Step 4: Pour Jug2 into Jug1 until Jug1 is full
+jug1 = 4
+jug2 = 2
+print("\nPour Jug2 into Jug1 until Jug1 is full")
+print("Jug1 =", jug1, "Jug2 =", jug2)
+
+# Step 5: Empty Jug1
+jug1 = 0
+print("\nEmpty Jug1")
+print("Jug1 =", jug1, "Jug2 =", jug2)
+
+# Step 6: Pour remaining water from Jug2 to Jug1
+jug1 = jug2
+jug2 = 0
+print("\nPour remaining water into Jug1")
+print("Jug1 =", jug1, "Jug2 =", jug2)
+
+# Step 7: Fill Jug2 again
+jug2 = 3
+print("\nFill Jug2 again")
+print("Jug1 =", jug1, "Jug2 =", jug2)
+
+# Step 8: Pour Jug2 into Jug1
+jug1 = 4
+jug2 = 1
+print("\nPour Jug2 into Jug1")
+print("Jug1 =", jug1, "Jug2 =", jug2)
+
+# Step 9: Empty Jug1
+jug1 = 0
+print("\nEmpty Jug1")
+print("Jug1 =", jug1, "Jug2 =", jug2)
+
+# Step 10: Pour remaining 1L into Jug1
+jug1 = jug2
+jug2 = 0
+print("\nPour remaining water into Jug1")
+print("Jug1 =", jug1, "Jug2 =", jug2)
+
+# Step 11: Fill Jug2
+jug2 = 3
+print("\nFill Jug2")
+print("Jug1 =", jug1, "Jug2 =", jug2)
+
+# Step 12: Pour Jug2 into Jug1
+jug1 = 4
+jug2 = 0
+print("\nPour Jug2 into Jug1")
+print("Jug1 =", jug1, "Jug2 =", jug2)
+
+print("\nGoal Achieved!")
